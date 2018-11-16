@@ -46,4 +46,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_EFFECT_RGB_TEST
 #define RGBLIGHT_EFFECT_ALTERNATING
 #define RGBLIGHT_ANIMATIONS
+
+#define MOUSEKEY_DELAY             30
+#define MOUSEKEY_INTERVAL          20
+#define MOUSEKEY_MAX_SPEED         5
+#define MOUSEKEY_TIME_TO_MAX       0
+#define MOUSEKEY_WHEEL_MAX_SPEED   8
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 40
 #endif
