@@ -22,6 +22,7 @@ enum custom_keycodes {
   DVORAK,
   LOWER,
   RAISE,
+  LED,
   ADJUST,
 };
 
@@ -57,9 +58,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_QWERTY] = LAYOUT( \
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                   KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, \
-  KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLASH, \
+  KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL, \
  KC_LCANDE,KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                   KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
-  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, KC_ESC, KC_BSPC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, LED , \
+  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, KC_ESC, KC_BSPC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLASH , \
                KC_LALTE,KC_LGUI,  KC_LSANDS,LOWER,KC_LCTRL, KC_ENT ,  RAISE,KC_RSANDS, KC_RGUI, KC_RALTK\
 ),
 
@@ -161,15 +162,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *               `---------------------------------------------------------------------'
  */
 [_ADJUST] =  LAYOUT( \
-  RESET,   _______, _______, _______, _______, _______,           _______,   _______,   _______,   _______,  KC_SLCK,  KC_PAUSE, \
+  RESET,   RGB_TOG, RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI,           RGB_VAD,   RGB_VAI,   RGB_M_P,   _______,  KC_SLCK,  KC_PAUSE, \
   _______, _______  , KC_MS_U, _______, _______, _______,                   _______, _______, _______, _______, KC_PGDOWN, KC_PGUP, \
   _______, KC_MS_L, KC_MS_D, KC_MS_R,_______,_______,                   KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, _______, _______, \
-  KC_LSFT, _______,  _______, _______,  _______, _______, _______, _______, _______, KC_BTN1,KC_BTN2, _______, _______, _______, \
+  KC_LSFT, RGB_M_P,  RGB_M_B, RGB_M_R,  RGB_M_K, RGB_MOD, _______, _______, RGB_RMOD, KC_BTN1,KC_BTN2, _______, _______, _______, \
                     _______, _______, KC_SPC, _______, _______, _______, _______, KC_SPC, KC_BTN1, KC_BTN2\
 ),
 
 [_LED] =  LAYOUT( \
-  RESET,   RGB_TOG, RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI,           RGB_VAD,   RGB_VAI,   _______,   _______,  KC_SLCK,  KC_PAUSE, \
+  QWERTY,   RGB_TOG, RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI,           RGB_VAD,   RGB_VAI,   _______,   _______,  KC_SLCK,  KC_PAUSE, \
   _______, _______  , _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______, \
   _______,  _______, _______,_______,_______, _______,              _______, _______, _______, _______, _______, _______, \
   RGB_M_P, RGB_M_B,  RGB_M_R, RGB_M_SW,  RGB_M_SN, RGB_M_K, _______, _______, RGB_M_X, RGB_M_G, RGB_M_T, _______, _______, _______, \
