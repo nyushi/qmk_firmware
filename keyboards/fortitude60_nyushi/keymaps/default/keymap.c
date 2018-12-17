@@ -121,8 +121,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = LAYOUT( \
   KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_EQL, \
-  KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_LPRN,                   KC_RPRN, KC_AMPR, KC_ASTR, KC_LBRC, KC_RBRC, KC_PLUS,  \
-  KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_LBRC,                   KC_RBRC,   KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, _______, \
+  KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PLUS,  \
+  KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_LBRC,                   KC_RBRC,   KC_UNDS, KC_PLUS, _______, KC_LBRC, KC_RBRC, \
   _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_LCBR,  _______, _______,KC_RCBR,S(KC_NUHS),S(KC_NUBS),_______, _______, _______,\
                     _______, _______, KC_LSANDS, _______, _______, _______,  _______, KC_RSANDS, _______, _______\
 ),
