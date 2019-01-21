@@ -13,7 +13,7 @@ extern keymap_config_t keymap_config;
 #define _DVORAK 2
 #define _LOWER 3
 #define _RAISE 4
-#define _LED 5
+#define _MOVE 5
 #define _ADJUST 16
 
 enum custom_keycodes {
@@ -22,7 +22,7 @@ enum custom_keycodes {
   DVORAK,
   LOWER,
   RAISE,
-  LED,
+  MOVE,
   ADJUST,
 };
 
@@ -31,7 +31,7 @@ enum custom_keycodes {
 #define XXXXXXX KC_NO
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
-#define LED MO(_LED)
+#define MOVE MO(_MOVE)
 
 #define KC_LSANDS MT(MOD_LSFT, KC_SPC)
 #define KC_RSANDS MT(MOD_RSFT, KC_SPC)
@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL, \
   KC_LCANDE,KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                   KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, KC_ESC, KC_BSPC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLASH , \
-               KC_LALTE ,KC_LGUI,  KC_LSANDS,LOWER,KC_LCTRL, KC_ENT, RAISE,KC_RSANDS, KC_RGUI, KC_RALTK\
+               KC_LALTE ,KC_LGUI,  KC_LSANDS,LOWER,MOVE, KC_ENT, RAISE,KC_RSANDS, KC_RGUI, KC_RALTK\
 ),
 
 /* Colemak
@@ -145,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = LAYOUT( \
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_BSPC, \
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_MINS, \
-  KC_DEL,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_BSLS, \
+  KC_DEL,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_MINS, \
   KC_LSFT, KC_ACL0, KC_ACL1, KC_ACL2,   KC_F10,  KC_F11,  _______, _______,  _______,  KC_PGDOWN, KC_PGUP, _______, _______, _______, \
               _______, _______, KC_LSANDS, KC_BTN1, KC_LSFT, _______,  _______, KC_RSANDS, _______, _______\
 ),
@@ -166,15 +166,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ADJUST] =  LAYOUT( \
   RESET,   RGB_TOG, RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI,           RGB_VAD,   RGB_VAI,   RGB_M_P,   _______,  KC_SLCK,  KC_PAUSE, \
   KC_F1, KC_F2 , KC_F3, KC_F4, KC_F5, KC_F6,                   _______, _______, _______, KC_LBRC, KC_RBRC, _______, \
-  KC_F7, KC_F8, KC_F9,KC_F10,KC_F11, KC_F12,                 KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, _______, _______, \
+  KC_F7, KC_F8, KC_F9,KC_F10,KC_F11, KC_F12,                 _______, _______, _______, KC_LBRC, KC_RBRC, _______, \
   KC_LSFT, RGB_M_P,  RGB_M_B, RGB_M_R,  RGB_M_K, RGB_MOD, _______, _______, RGB_RMOD, KC_BTN1,KC_BTN2, _______, _______, _______, \
                     _______, _______, KC_SPC, _______, _______, _______, _______, KC_SPC, KC_BTN1, KC_BTN2\
 ),
 
-[_LED] =  LAYOUT( \
+[_MOVE] =  LAYOUT( \
   QWERTY,   RGB_TOG, RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI,           RGB_VAD,   RGB_VAI,   _______,   _______,  KC_SLCK,  KC_PAUSE, \
   _______, _______  , _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______, \
-  _______,  _______, _______,_______,_______, _______,              _______, _______, _______, _______, _______, _______, \
+  _______,  _______, _______,_______,_______, _______,              KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, _______, _______, \
   RGB_M_P, RGB_M_B,  RGB_M_R, RGB_M_SW,  RGB_M_SN, RGB_M_K, _______, _______, RGB_M_X, RGB_M_G, RGB_M_T, _______, _______, _______, \
                     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______\
 )
