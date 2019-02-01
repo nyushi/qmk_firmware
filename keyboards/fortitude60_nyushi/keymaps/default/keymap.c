@@ -39,7 +39,7 @@ enum custom_keycodes {
 #define KC_RGUIK MT(MOD_RGUI, KC_LANG1)
 #define KC_LALTE MT(MOD_LALT, KC_LANG2)
 #define KC_RALTK MT(MOD_RALT, KC_LANG1)
-#define KC_LCANDE MT(MOD_RCTL, KC_ESC)
+#define KC_LCANDE MT(MOD_LCTL, KC_ESC)
 #define LOWERE LT(LOWER, KC_LANG2)
 #define RAISEK LT(RAISE, KC_LANG1)
 
@@ -126,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS,  \
   KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS, \
   _______, _______, _______, _______, _______, KC_LCBR,  _______, _______,KC_RCBR,_______,_______,_______, _______, _______,\
-                    _______, _______, KC_LSANDS, _______, _______, _______,  _______, KC_RSANDS, _______, _______\
+                    _______, _______, KC_LSANDS, LOWER, _______, _______,  RAISE, KC_RSANDS, _______, _______\
 ),
 
 /* Raise
@@ -147,7 +147,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_MINS, \
   KC_DEL,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_MINS, \
   KC_LSFT, KC_ACL0, KC_ACL1, KC_ACL2,   KC_F10,  KC_F11,  _______, _______,  _______,  KC_PGDOWN, KC_PGUP, _______, _______, _______, \
-              _______, _______, KC_LSANDS, KC_BTN1, KC_LSFT, _______,  _______, KC_RSANDS, _______, _______\
+              _______, _______, KC_LSANDS, LOWER, KC_LSFT, _______,  RAISE, KC_RSANDS, _______, _______\
 ),
 
 /* Adjust (Lower + Raise)
@@ -218,6 +218,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
+    case KC_EQL:
+      // ctrl-= -> ctrl-[ 主にtmux用で、貼り付けはprefix =のchoose bufferを使うことにする
+      if(keyboard_report->mods ==(MOD_BIT(KC_LCTRL))){
+          register_code(KC_LBRACKET);
+          unregister_code(KC_LBRACKET);
+      }
+      return true;
   }
   return true;
 }
