@@ -20,13 +20,19 @@ jobs:
       - run:
           name: Build application Docker image
           command: |
-            docker build --cache-from=qmk_firmware -t qmk_firmware .
+            docker build --cache-from=nyushi/qmk_firmware -t nyushi/qmk_firmware .
       - run:
           name: Save Docker image layer cache
           command: |
             mkdir -p /caches
-            docker save -o /caches/qmk_firmware.tar qmk_firmware
+            docker save -o /caches/qmk_firmware.tar nyushi/qmk_firmware
       - save_cache:
           key: v1-{{ .Branch }}-{{ epoch }}
           paths:
             - /caches/qmk_firmware.tar
+      - run:
+          name: Docker Login
+          command: docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+      - run:
+          name: Push image to registory
+          command: docker push nyushi/qmk_firmware
