@@ -36,3 +36,6 @@ jobs:
       - run:
           name: Push image to registory
           command: docker push nyushi/qmk_firmware
+      - run:
+          name: Build firmware
+          command: docker run -it --rm -v`pwd`:/qmk nyushi/qmk_firmware make fortitude60_nyushi/rev1:default
