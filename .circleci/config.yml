@@ -55,3 +55,9 @@ jobs:
           command: |
             go get github.com/tcnksm/ghr
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete -prerelease /tmp/workspace
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - build
+    - publish-github-release
