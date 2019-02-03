@@ -39,10 +39,10 @@ jobs:
       - run:
           name: Build firmware
           command: docker run --name qmk_firmware -it -w /qmk nyushi/qmk_firmware sh -c "git clone --depth 1 --single-branch --branch $CIRCLE_BRANCH https://github.com/nyushi/qmk_firmware && cd qmk_firmware && make fortitude60_nyushi/rev1:default"
+      - run: mkdir -p /tmp/workspace
       - run:
           name: Copy firmware
           command: docker cp qmk_firmware:/qmk/qmk_firmware/fortitude60_nyushi_rev1_default.hex /tmp/workspace
-      - run: mkdir -p /tmp/workspace
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
