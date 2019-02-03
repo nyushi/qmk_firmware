@@ -7,8 +7,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - attach_workspace:
-          at: /tmp/workspace
       - restore_cache:
           keys:
             - v1-{{ .Branch }}
@@ -44,7 +42,12 @@ jobs:
       - run:
           name: Copy firmware
           command: docker cp qmk_firmware:/qmk/qmk_firmware/fortitude60_nyushi_rev1_default.hex /tmp/workspace
-  publish-github-release:
+      - run: mkdir -p /tmp/workspace
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+            - fortitude60_nyushi_rev1_default.hex
+   publish-github-release:
     docker:
       - image: circleci/golang
     steps:
