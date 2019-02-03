@@ -47,7 +47,7 @@ jobs:
           root: /tmp/workspace
           paths:
             - fortitude60_nyushi_rev1_default.hex
-   publish-github-release:
+  publish-github-release:
     docker:
       - image: circleci/golang
     steps:
