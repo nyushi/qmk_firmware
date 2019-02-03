@@ -38,4 +38,4 @@ jobs:
           command: docker push nyushi/qmk_firmware
       - run:
           name: Build firmware
-          command: docker run -it --rm -v`pwd`:/qmk nyushi/qmk_firmware make fortitude60_nyushi/rev1:default
+          command: docker run -it --rm -w /qmk nyushi/qmk_firmware sh -c 'git clone --depth 1 --single-branch --branch $CIRCLE_BRANCH https://github.com/nyushi/qmk_firmware /qmk && make fortitude60_nyushi/rev1:default'
