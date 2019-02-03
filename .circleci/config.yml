@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: /app
+    working_directory: /qmk_firmware
     docker:
       - image: docker:18.06.1-ce-git
     steps:
@@ -11,22 +11,22 @@ jobs:
           keys:
             - v1-{{ .Branch }}
           paths:
-            - /caches/app.tar
+            - /caches/qmk_firmware.tar
       - run:
           name: Load Docker image layer cache
           command: |
             set +o pipefail
-            docker load -i /caches/app.tar | true
+            docker load -i /caches/qmk_firmware.tar | true
       - run:
           name: Build application Docker image
           command: |
-            docker build --cache-from=app -t nyushi/qmk_firmware .
+            docker build --cache-from=qmk_firmware -t qmk_firmware .
       - run:
           name: Save Docker image layer cache
           command: |
             mkdir -p /caches
-            docker save -o /caches/app.tar app
+            docker save -o /caches/qmk_firmware.tar qmk_firmware
       - save_cache:
           key: v1-{{ .Branch }}-{{ epoch }}
           paths:
-            - /caches/app.tar
+            - /caches/qmk_firmware.tar
