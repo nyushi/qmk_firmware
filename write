@@ -1,0 +1,20 @@
+#!/bin/bash
+
+docker build . -t qmk_firmware
+
+# clone is workaround for slow volume
+docker run -it --rm -v`pwd`:/repo qmk_firmware sh -c "git clone --depth 1 file:///repo /qmk && make fortitude60_nyushi/rev1:default"
+
+USB= ;
+printf "Detecting USB port, reset your controller now."
+ls /dev/tty* > /tmp/1
+while [ -z $USB ]; do
+  sleep 0.5
+  printf "."
+  ls /dev/tty* > /tmp/2
+  USB=`comm -13 /tmp/1 /tmp/2 | grep -o '/dev/tty.*'`
+  mv /tmp/2 /tmp/1
+done
+echo ""
+echo "Detected controller on USB port at $USB"
+sleep 1; avrdude -p atmega32u4 -c avr109 -P $USB -U flash:w:.build/fortitude60_nyushi_rev1_default.hex
