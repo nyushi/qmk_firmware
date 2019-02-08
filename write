@@ -3,7 +3,7 @@
 docker build . -t qmk_firmware
 
 # clone is workaround for slow volume
-docker run -it --rm -v`pwd`:/repo qmk_firmware sh -c "git clone --depth 1 file:///repo /qmk && make fortitude60_nyushi/rev1:default"
+docker run -w /qmk -it --rm -v`pwd`:/repo qmk_firmware sh -c "git clone --depth 1 file:///repo /qmk && make fortitude60_nyushi/rev1:default"
 
 USB= ;
 printf "Detecting USB port, reset your controller now."
