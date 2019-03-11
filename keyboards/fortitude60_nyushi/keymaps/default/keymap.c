@@ -61,9 +61,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT( \
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                   KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, \
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL, \
-  KC_LCANDE,KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                   KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
-  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, KC_ESC, KC_BSPC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLASH , \
-               KC_LALTE ,KC_LGUI,  KC_LSANDS,LOWER,MOVE, KC_ENT, RAISE,KC_RSANDS, KC_RGUI, KC_RALTK\
+  KC_LCTL,KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                   KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
+  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, MOVE, KC_BSPC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLASH , \
+               KC_LALTE ,KC_LGUI,  KC_LSANDS,LOWER,    KC_ESC, KC_ENT, RAISE,KC_RSANDS, KC_RGUI, KC_RALTK\
 ),
 
 /* Colemak
@@ -124,9 +124,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT( \
   KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_EQL, \
   KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS,  \
-  _______, _______, _______, _______, _______, _______,                  _______, _______, _______, _______,  KC_COLN ,KC_DQT, \
-  _______, _______, _______, _______, _______, _______,  _______, _______,_______,_______,  KC_LT,    KC_GT, KC_QUES, KC_PIPE,\
-                    _______, _______, KC_LSANDS, LOWER, _______, _______,  RAISE, KC_RSANDS, _______, _______\
+  _______, _______, _______, _______, _______, _______,                  KC_MS_LEFT, KC_MS_DOWN, KC_MS_UP, KC_MS_RIGHT,  KC_COLN ,KC_DQT, \
+  _______, _______, _______, _______, _______, _______,  _______, KC_MS_BTN2,_______,KC_MS_WH_UP,  KC_MS_WH_DOWN,    KC_GT, KC_QUES, KC_PIPE,\
+                    _______, _______, KC_SPC, LOWER, _______, KC_MS_BTN1,  RAISE, KC_SPC, _______, _______\
 ),
 
 /* Raise
@@ -145,9 +145,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = LAYOUT( \
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_BSPC, \
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_MINS, \
-  _______, _______, _______, _______, _______, _______,                    _______, _______, _______, _______, _______, _______, \
+  _______, _______, _______, _______, _______, _______,                    KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT, _______, _______, \
   KC_LSFT, KC_ACL0, KC_ACL1, KC_ACL2,   KC_F10,  KC_F11,  _______, _______,  _______,  KC_PGDOWN, KC_PGUP, _______, _______, _______, \
-              _______, _______, KC_LSANDS, LOWER, MOVE, _______,  RAISE, KC_RSANDS, _______, _______\
+              _______, _______, KC_SPC, LOWER, MOVE, _______,  RAISE, KC_SPC, _______, _______\
 ),
 
 /* Adjust (Lower + Raise)
@@ -173,10 +173,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_MOVE] =  LAYOUT( \
   _______, _______, _______, _______, _______, _______,                   _______,   _______,   _______,   _______,  KC_SLCK,  KC_PAUSE, \
-  _______, _______  , KC_MS_UP, _______, _______, _______,                  KC_MS_WH_LEFT, KC_MS_WH_UP, KC_MS_WH_DOWN, KC_MS_WH_RIGHT, _______, _______, \
-  _______,  KC_MS_LEFT, KC_MS_DOWN,KC_MS_RIGHT,_______, _______,                     KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, _______, _______, \
-  KC_LSFT, _______,  _______, _______,  _______, _______, _______, KC_MS_BTN2, _______, KC_PGDOWN, KC_PGUP,_______, _______, _______, \
-                           _______, _______, KC_SPC, LOWER, MOVE,   KC_MS_BTN1, KC_MS_BTN3, KC_SPC, _______, _______\
+  _______, _______  , _______, _______, _______, _______,                  KC_MS_WH_LEFT, KC_MS_WH_UP, KC_MS_WH_DOWN, KC_MS_WH_RIGHT, _______, _______, \
+  _______,  _______, _______,_______,_______, _______,                     _______, _______, _______, _______, _______, _______, \
+  KC_LSFT, _______,  _______, _______,  _______, _______, _______, _______, _______, _______, _______,_______, _______, _______, \
+                           _______, _______, KC_SPC, LOWER, MOVE,   _______, _______, KC_SPC, _______, _______\
 )
 
 };
