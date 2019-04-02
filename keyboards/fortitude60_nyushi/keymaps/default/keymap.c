@@ -217,12 +217,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
       break;
     case KC_EQL:
-      // ctrl-= -> ctrl-[ 主にtmux用で、貼り付けはprefix =のchoose bufferを使うことにする
+      // ctrl-= -> ESC(ctrl-[のマネ) 主にtmux用で、貼り付けはprefix =のchoose bufferを使うことにする
       if(keyboard_report->mods ==(MOD_BIT(KC_LCTRL))){
-          register_code(KC_LBRACKET);
-          unregister_code(KC_LBRACKET);
+          register_code(KC_ESC);
+          unregister_code(KC_ESC);
       }
-      return true;
+      return false;
   }
   return true;
 }
