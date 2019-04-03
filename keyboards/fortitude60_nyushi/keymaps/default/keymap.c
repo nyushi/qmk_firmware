@@ -188,7 +188,13 @@ uint32_t layer_state_set_user(uint32_t state) {
 
 
 static bool pressed = false;
+static uint16_t now;
+static uint16_t last;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if(keycode != KC_COMMA){
+    last = now;
+    now = keycode;
+  }
   if(!pressed && record->event.pressed){
     //rgblight_enable();
     rgblight_increase_val();
@@ -222,14 +228,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if(keyboard_report->mods ==(MOD_BIT(KC_LCTRL)) && record->event.pressed){
           register_code(KC_LBRACKET);
           unregister_code(KC_LBRACKET);
+          return false;
       }
-      return false;
+      return true;
     case KC_COMMA:
       if(keyboard_report->mods ==(MOD_BIT(KC_LCTRL)) && record->event.pressed){
-          register_code(KC_LBRACKET);
-          unregister_code(KC_LBRACKET);
+          unregister_code(KC_LCTRL);
+          register_code(last);
+          unregister_code(last);
+          return false;
       }
-      return false;
+      return true;
   }
   return true;
 }
+
