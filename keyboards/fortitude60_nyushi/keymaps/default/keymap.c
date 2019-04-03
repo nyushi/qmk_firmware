@@ -219,7 +219,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case KC_EQL:
       // ctrl-= -> ctrl-[ 主にtmux用で、貼り付けはprefix =のchoose bufferを使うことにする
-      if(keyboard_report->mods ==(MOD_BIT(KC_LCTRL))){
+      if(keyboard_report->mods ==(MOD_BIT(KC_LCTRL)) && record->event.pressed){
           register_code(KC_LBRACKET);
           unregister_code(KC_LBRACKET);
       }
