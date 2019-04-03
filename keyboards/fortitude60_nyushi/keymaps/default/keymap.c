@@ -224,6 +224,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           unregister_code(KC_LBRACKET);
       }
       return false;
+    case KC_COMMA:
+      if(keyboard_report->mods ==(MOD_BIT(KC_LCTRL)) && record->event.pressed){
+          register_code(KC_LBRACKET);
+          unregister_code(KC_LBRACKET);
+      }
+      return false;
   }
   return true;
 }
