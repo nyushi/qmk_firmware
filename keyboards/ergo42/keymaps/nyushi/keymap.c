@@ -77,8 +77,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_LOWER] = LAYOUT( \
   KC_TILD, KC_EXLM, KC_AT,    KC_HASH, KC_DLR,  KC_PERC, _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS, KC_PLUS,\
-  _______, KC_F1,   KC_F2,    KC_F3,   KC_F4,   KC_F5,   _______, KC_MS_LEFT,KC_MS_DOWN,KC_MS_UP,KC_MS_RIGHT, KC_LCBR, KC_RCBR, KC_PIPE, \
-  _______,  KC_F7,  KC_F8,    KC_F9,   KC_F10,  KC_F11,  _______, KC_MS_BTN2, KC_MS_WH_UP, KC_MS_WH_DOWN, KC_PGUP, KC_HOME, KC_UP,   KC_END, \
+  _______, KC_F1,   KC_F2,    KC_F3,   KC_F4,   KC_F5,   KC_F6,  KC_MS_LEFT,KC_MS_DOWN,KC_MS_UP,KC_MS_RIGHT, KC_LCBR, KC_RCBR, KC_PIPE, \
+  _______,  KC_F7,  KC_F8,    KC_F9,   KC_F10,  KC_F11,  KC_F12, KC_MS_BTN2, KC_MS_WH_UP, KC_MS_WH_DOWN, KC_PGUP, KC_HOME, KC_UP,   KC_END, \
   _______, _______, _______, _______,  KC_SPC, _______, _______, KC_MS_BTN1, KC_SPC, _______, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT \
 ),
 
