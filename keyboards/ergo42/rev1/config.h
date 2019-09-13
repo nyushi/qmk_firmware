@@ -41,7 +41,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define MATRIX_COL_PINS { B6, B2, B3, B1, F7, F6 } //uncomment this line and comment line above if you need to reverse left-to-right key order
 
 /* define tapping term */
-//#define TAPPING_TERM 70
+#define TAPPING_TERM 70
+#define IGNORE_MOD_TAP_INTERRUPT
 #define PERMISSIVE_HOLD
 
 
